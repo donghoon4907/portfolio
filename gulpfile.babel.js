@@ -5,7 +5,6 @@ import gulpSass from "gulp-sass";
 import gulpAutoprefixer from "gulp-autoprefixer";
 import gulpMinifyCss from "gulp-csso";
 import gulpBrowserify from "gulp-bro";
-// import gulpGhPages from "gulp-gh-pages";
 import babelify from "babelify";
 import del from "del";
 import ws from "gulp-webserver";
@@ -14,9 +13,9 @@ gulpSass.compiler = require("node-sass");
 
 const routes = {
   pug: {
-    watch: "src/**/*.pug", // watch all pug file
-    src: "src/*.pug", // only index.pug
-    dest: "build" // destinatation
+    watch: "src/**/*.pug",
+    src: "src/page/*.pug",
+    dest: "build"
   },
   img: {
     src: "src/img/*",
@@ -29,7 +28,7 @@ const routes = {
   },
   js: {
     watch: "src/js/**/*.js",
-    src: "src/js/main.js",
+    src: "src/js/entry/*.js",
     dest: "build/js"
   }
 };
@@ -67,8 +66,6 @@ const js = () =>
       })
     )
     .pipe(gulp.dest(routes.js.dest));
-
-// const gh = gulp.src("build/**/*").pipe(gulpGhPages());
 
 const webserver = () =>
   gulp.src("build").pipe(
