@@ -262,10 +262,7 @@ body {
 .prefix {
   @include mobile {
     &::before {
-      content: "[";
-    }
-    &::after {
-      content: "]";
+      content: "# ";
     }
   }
 }
