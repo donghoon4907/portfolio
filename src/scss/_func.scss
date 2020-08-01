@@ -1,0 +1,41 @@
+@import "_variables";
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin flex($justify-conetnt) {
+  display: flex;
+  justify-content: $justify-conetnt;
+  align-items: center;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin section {
+  width: 912px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  @include tablet {
+    width: calc(100% - 2rem);
+  }
+}

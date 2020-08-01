@@ -24,7 +24,7 @@ const routes = {
   scss: {
     watch: "src/scss/**/*.scss",
     src: "src/scss/style.scss",
-    dest: "build/css/style.css"
+    dest: "build/css"
   },
   js: {
     watch: "src/js/**/*.js",
@@ -35,14 +35,20 @@ const routes = {
 
 // pug => html in build
 const pug = () =>
-  gulp.src(routes.pug.src).pipe(gulpPug()).pipe(gulp.dest(routes.pug.dest));
+  gulp
+    .src(routes.pug.src)
+    .pipe(gulpPug())
+    .pipe(gulp.dest(routes.pug.dest));
 
 // clean build folder
-const clean = () => del(["build", ".publish"]);
+const clean = () => del(["build"]);
 
 // image optimization in build
 const img = () =>
-  gulp.src(routes.img.src).pipe(gulpImage()).pipe(gulp.dest(routes.img.dest));
+  gulp
+    .src(routes.img.src)
+    .pipe(gulpImage())
+    .pipe(gulp.dest(routes.img.dest));
 
 // scss => css in build
 const styles = () =>
@@ -60,18 +66,20 @@ const js = () =>
     .pipe(
       gulpBrowserify({
         transform: [
-          babelify.configure({ presets: ["@babel/preset-env"] }),
+          babelify.configure({
+            presets: ["@babel/preset-env"]
+          }),
           ["uglifyify", { global: true }]
         ]
       })
     )
     .pipe(gulp.dest(routes.js.dest));
-
 const webserver = () =>
   gulp.src("build").pipe(
     ws({
-      livereload: true, // 파일 저장 시 자동 새로고침 사용 여부
-      open: true // 브라우저 자동 열림 사용 여부
+      livereload: true,
+      open: "http://localhost:8000/index.html",
+      directoryListing: true
     })
   );
 

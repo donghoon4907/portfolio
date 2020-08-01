@@ -1,6 +1,268 @@
 @import "_reset";
-@import  "_variables";
+@import "_fonts.scss";
+@import "_func.scss";
+@import "_variables";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 body {
-  background-color: $red;
+  background: #f3f3f3;
+}
+
+.portfolio {
+  &-header {
+    position: fixed;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    top: 0;
+    right: 50%;
+    transform: translate(50%, 0);
+    z-index: 2;
+
+    @include flex(center);
+  }
+
+  &-footer {
+    position: fixed;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 0);
+    z-index: 2;
+
+    @include flex(center);
+  }
+
+  &-timeline {
+    width: 120px;
+    height: 30px;
+
+    @include flex(space-between);
+    @include mobile {
+      width: 80px;
+      height: 20px;
+    }
+
+    &__dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: $gray;
+
+      &.active {
+        background: black;
+      }
+
+      @include mobile {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  &-section {
+    opacity: 0;
+    transition: opacity 2s linear;
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    background: #fff;
+    box-shadow: $sectionBoxShadow;
+
+    @include flex(flex-start);
+    @include section;
+  }
+
+  &-comment {
+    width: 100%;
+    font-size: 36px;
+    font-weight: bold;
+    padding: 1rem;
+    line-height: 40px;
+
+    @include mobile {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+
+  &-subject {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    @include flex(space-between);
+    @include mobile {
+      font-size: 24px;
+    }
+
+    & div {
+      border-bottom: $subjectBorder;
+    }
+  }
+
+  &-profile {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: $sectionPadding;
+
+    &__title {
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 40px;
+
+      @include mobile {
+        font-size: 20px;
+        line-height: 25px;
+      }
+    }
+
+    &__email {
+      font-size: 24px;
+      font-weight: 500;
+      color: $gray;
+
+      @include mobile {
+        font-size: 18px;
+      }
+    }
+
+    &__description {
+      font-size: 16px;
+      margin-top: 30px;
+      line-height: 30px;
+
+      @include mobile {
+        font-size: 15px;
+        line-height: 20px;
+      }
+    }
+    & a {
+      color: $blue;
+    }
+  }
+
+  &-career {
+    flex: 1;
+    padding: $sectionPadding;
+
+    & img {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      border: $boxBorder;
+      cursor: pointer;
+
+      @include mobile {
+        height: 300px;
+      }
+    }
+
+    & .carousel-caption {
+      color: $black;
+    }
+  }
+}
+
+.resume {
+  &-header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @include flex(space-between);
+    @include section;
+    @include tablet {
+      display: none;
+    }
+
+    &__printer,
+    &__pdf {
+      width: 32px;
+      height: 32px;
+      background: url(/img/printer.png);
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    &__pdf {
+      margin-right: 10px;
+      background: url(/img/pdf.png);
+    }
+  }
+
+  &-section {
+    flex-wrap: wrap;
+    padding: 30px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: $sectionBoxShadow;
+
+    @include flex(center);
+    @include section;
+
+    & > div {
+      flex: 0 0 100%;
+    }
+
+    & a {
+      color: black;
+      text-decoration: underline;
+    }
+  }
+
+  &-subject {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    & > div {
+      display: inline-block;
+      border-bottom: $subjectBorder;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  &-range {
+    font-size: 16px;
+    color: $gray;
+  }
+
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-column {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @include flex(flex-start);
+    align-items: flex-start;
+    height: auto;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    & > div {
+      flex: 1;
+      height: inherit;
+    }
+
+    & + & {
+      border-top: 1px dotted $gray;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+  }
+}
+
+.prefix {
+  @include mobile {
+    &::before {
+      content: "* ";
+    }
+  }
 }

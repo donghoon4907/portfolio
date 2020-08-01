@@ -1,4 +1,2 @@
-build
-.env
 node_modules
 .vscode
