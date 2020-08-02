@@ -89,6 +89,7 @@
   }
   &-article {
     width: 100%;
+    overflow: hidden;
 
     & > div {
       height: auto;
