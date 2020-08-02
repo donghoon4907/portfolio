@@ -90,6 +90,10 @@
   &-article {
     width: 100%;
 
+    & > div {
+      height: auto;
+    }
+
     & img {
       border: $boxBorder;
     }
