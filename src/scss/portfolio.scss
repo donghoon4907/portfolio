@@ -3,10 +3,7 @@
 @import "_func.scss";
 @import "_variables";
 @import "node_modules/bootstrap/scss/bootstrap";
-
-body {
-  background: #f3f3f3;
-}
+@import "_global.scss";
 
 .portfolio {
   &-header {
@@ -147,122 +144,45 @@ body {
     flex: 1;
     padding: $sectionPadding;
 
-    & img {
+    &__wrap {
+      gap: 12px;
+      @include flex(space-between);
+
+      & > div {
+        flex: 1;
+        height: 200px;
+        border: $boxBorder;
+        cursor: pointer;
+      }
+
+      @include mobile {
+        display: none;
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    #careerCarousel {
+      display: none;
+
+      @include mobile {
+        display: block;
+      }
+    }
+
+    & #careerCarousel img {
       width: 100%;
-      height: 400px;
+      height: 300px;
       border-radius: 10px;
       border: $boxBorder;
       cursor: pointer;
-
-      @include mobile {
-        height: 300px;
-      }
     }
 
     & .carousel-caption {
       color: $black;
-    }
-  }
-}
-
-.resume {
-  &-header {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    @include flex(space-between);
-    @include section;
-    @include tablet {
-      display: none;
-    }
-
-    &__printer,
-    &__pdf {
-      width: 32px;
-      height: 32px;
-      background: url(/img/printer.png);
-      cursor: pointer;
-      display: inline-block;
-    }
-
-    &__pdf {
-      margin-right: 10px;
-      background: url(/img/pdf.png);
-    }
-  }
-
-  &-section {
-    flex-wrap: wrap;
-    padding: 30px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: $sectionBoxShadow;
-
-    @include flex(center);
-    @include section;
-
-    & > div {
-      flex: 0 0 100%;
-    }
-
-    & a {
-      color: black;
-      text-decoration: underline;
-    }
-  }
-
-  &-subject {
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-    & > div {
-      display: inline-block;
-      border-bottom: $subjectBorder;
-      font-size: 24px;
-      font-weight: bold;
-    }
-  }
-
-  &-range {
-    font-size: 16px;
-    color: $gray;
-  }
-
-  &-wrap {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &-column {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    @include flex(flex-start);
-    align-items: flex-start;
-    height: auto;
-
-    @include mobile {
-      flex-direction: column;
-    }
-
-    & > div {
-      flex: 1;
-      height: inherit;
-    }
-
-    & + & {
-      border-top: 1px dotted $gray;
-    }
-
-    &__description {
-      font-size: 14px;
-    }
-  }
-}
-
-.prefix {
-  @include mobile {
-    &::before {
-      content: "# ";
     }
   }
 }

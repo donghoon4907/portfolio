@@ -23,7 +23,7 @@ const routes = {
   },
   scss: {
     watch: "src/scss/**/*.scss",
-    src: "src/scss/style.scss",
+    src: "src/scss/*.scss",
     dest: "build/css"
   },
   js: {
@@ -62,7 +62,7 @@ const styles = () =>
 // preset js
 const js = () =>
   gulp
-    .src(routes.js.src)
+    .src(routes.js.src, { sourcemaps: true })
     .pipe(
       gulpBrowserify({
         transform: [

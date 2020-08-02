@@ -1,0 +1,100 @@
+@import "_reset";
+@import "_fonts.scss";
+@import "_func.scss";
+@import "_variables";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "_global.scss";
+
+.resume {
+  &-header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @include flex(space-between);
+    @include section;
+    @include tablet {
+      display: none;
+    }
+
+    &__printer,
+    &__pdf {
+      width: 32px;
+      height: 32px;
+      background: url(/img/printer.png);
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    &__pdf {
+      margin-right: 10px;
+      background: url(/img/pdf.png);
+    }
+  }
+
+  &-section {
+    flex-wrap: wrap;
+    padding: $sectionPadding;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: $sectionBoxShadow;
+
+    @include flex(center);
+    @include section;
+
+    & > div {
+      flex: 0 0 100%;
+    }
+
+    & a {
+      color: black;
+      text-decoration: underline;
+    }
+  }
+
+  &-subject {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    & > div {
+      display: inline-block;
+      border-bottom: $subjectBorder;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  &-range {
+    font-size: 16px;
+    color: $gray;
+  }
+
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-column {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @include flex(flex-start);
+    align-items: flex-start;
+    height: auto;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    & > div {
+      flex: 1;
+      height: inherit;
+    }
+
+    & + & {
+      border-top: 1px dotted $gray;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+  }
+}

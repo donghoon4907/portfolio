@@ -1,0 +1,13 @@
+@import "_func.scss";
+
+body {
+  background: #f3f3f3;
+}
+
+.prefix {
+  @include mobile {
+    &::before {
+      content: "# ";
+    }
+  }
+}

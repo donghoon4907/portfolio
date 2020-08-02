@@ -1,11 +1,9 @@
 import $ from "jquery";
 import "bootstrap";
-import jsPDF from "jspdf";
 import CORE from "../core";
 import fetchCore from "../fetch-core";
 
 $(document).ready(() => {
-  const doc = new jsPDF();
   const { variables } = fetchCore(CORE);
 
   const $sectionEl = $(".portfolio-section");

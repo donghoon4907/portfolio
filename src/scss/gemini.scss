@@ -1,0 +1,97 @@
+@import "_reset";
+@import "_fonts.scss";
+@import "_func.scss";
+@import "_variables";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "_global.scss";
+
+.gemini {
+  &-header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @include flex(flex-start);
+    @include section;
+
+    &__back {
+      width: 32px;
+      height: 32px;
+      background: url(/img/back.png);
+      cursor: pointer;
+      margin-right: 10px;
+    }
+  }
+  &-section {
+    padding: $sectionPadding;
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    background: #fff;
+    box-shadow: $sectionBoxShadow;
+
+    @include flex(flex-start);
+    @include section;
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &-subject {
+    margin-top: $sectionPadding;
+    margin-bottom: $sectionPadding;
+
+    & > div {
+      display: inline-block;
+      border-bottom: $subjectBorder;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &-column {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @include flex(flex-start);
+    align-items: flex-start;
+    height: auto;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    & > div {
+      flex: 1;
+      height: inherit;
+    }
+
+    & + & {
+      border-top: 1px dotted $gray;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+  }
+  &-nav {
+    margin: $sectionPadding 0;
+    width: 100%;
+
+    .active {
+      font-weight: bold;
+    }
+    :not(.active) {
+      color: $gray;
+    }
+  }
+  &-article {
+    width: 100%;
+
+    & img {
+      border: $boxBorder;
+    }
+  }
+}
