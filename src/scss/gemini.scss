@@ -38,6 +38,11 @@
     margin-top: $sectionPadding;
     margin-bottom: $sectionPadding;
 
+    @include mobile {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
     & > div {
       display: inline-block;
       border-bottom: $subjectBorder;

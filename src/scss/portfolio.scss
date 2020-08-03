@@ -91,6 +91,7 @@
     @include flex(space-between);
     @include mobile {
       font-size: 24px;
+      margin-bottom: 20px;
     }
 
     & div {
