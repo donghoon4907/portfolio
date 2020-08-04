@@ -6,8 +6,24 @@ body {
 
 .prefix {
   @include mobile {
-    &::before {
-      content: "# ";
-    }
+    font-weight: 500;
+    font-size: 18px;
   }
+}
+
+.whitebox {
+  @include mobile {
+    border: $boxBorder;
+    background: #efefef;
+    border-radius: 3px;
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.ellipsis {
+  width: 290px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

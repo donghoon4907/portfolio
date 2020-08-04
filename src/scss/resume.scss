@@ -66,6 +66,10 @@
       font-size: 24px;
       font-weight: bold;
     }
+
+    &.next-page {
+      margin-top: 40px;
+    }
   }
 
   &-range {
@@ -92,6 +96,7 @@
     & > div {
       flex: 1;
       height: inherit;
+      overflow: hidden;
     }
 
     & + & {
